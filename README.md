@@ -8,7 +8,7 @@ This repository explains the technical steps for conducting an in vitro-in vivo 
 
 ## Necessary files
 
-To conduct an IVIVE according to the workflow described below, the following files need to be downloaded and saved in the working directory:
+To conduct an IVIVE according to the workflow described below, the folder `Files` available in this repository needs to be downloaded. This folder contains the following files which need to be saved in the working directory:
 
 * `particle_distribution_raw_data.csv`
 * `psd calculation.R` 
@@ -196,7 +196,7 @@ Once the building blocks are loaded in PK-Sim<sup>®</sup>, a simulation can be 
 
 ## References
 
-[1][Noyes, A. A., & Whitney, W. R. (1897). The rate of solution of solid substances in their own solutions. *Journal of the American Chemical Society*, *19*(12), 930-934.](https://pubs.acs.org/doi/pdf/10.1021/ja02086a003)\
-[2][Dressman, J. B., & Fleisher, D. (1986). Mixing-tank model for predicting dissolution rate control of oral absorption. *Journal of pharmaceutical sciences*, *75*(2), 109-116.](https://pubmed.ncbi.nlm.nih.gov/3958917/)\
-[3][Hintz, R. J., & Johnson, K. C. (1989). The effect of particle size distribution on dissolution rate and oral absorption. *International Journal of Pharmaceutics*, *51*(1), 9-17.](https://www.sciencedirect.com/science/article/pii/0378517389900690)\
-[4][Open Systems Pharmacology Suite Manual. Version 7.4, October 2018, accessed 07-28-2020](https://docs.open-systems-pharmacology.org/working-with-pk-sim/pk-sim-documentation/pk-sim-formulations#particle-dissolution)
+[1][ Noyes, A. A., & Whitney, W. R. (1897). The rate of solution of solid substances in their own solutions. *Journal of the American Chemical Society*, *19*(12), 930-934.](https://pubs.acs.org/doi/pdf/10.1021/ja02086a003)\
+[2][ Dressman, J. B., & Fleisher, D. (1986). Mixing-tank model for predicting dissolution rate control of oral absorption. *Journal of pharmaceutical sciences*, *75*(2), 109-116.](https://pubmed.ncbi.nlm.nih.gov/3958917/)\
+[3][ Hintz, R. J., & Johnson, K. C. (1989). The effect of particle size distribution on dissolution rate and oral absorption. *International Journal of Pharmaceutics*, *51*(1), 9-17.](https://www.sciencedirect.com/science/article/pii/0378517389900690)\
+[4][ Open Systems Pharmacology Suite Manual. Version 7.4, October 2018, accessed 07-28-2020](https://docs.open-systems-pharmacology.org/working-with-pk-sim/pk-sim-documentation/pk-sim-formulations#particle-dissolution)
