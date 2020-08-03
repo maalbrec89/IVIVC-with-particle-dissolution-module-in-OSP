@@ -1,0 +1,202 @@
+[
+{
+  "Name": "ParticleDissolution_Bin01",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 10.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin02",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin03",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin04",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin05",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin06",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin07",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin08",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin09",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+},
+{
+  "Name": "ParticleDissolution_Bin10",
+  "FormulationType": "Formulation_Particles",
+  "Parameters": [
+    {
+      "Name": "Thickness (unstirred water layer)",
+      "Value": 0.02,
+      "Unit": "mm"
+    },
+    {
+      "Name": "Type of particle size distribution",
+      "Value": 0.0
+    },
+    {
+      "Name": "Particle radius (mean)",
+      "Value": 8.0,
+      "Unit": "mm"
+    }
+  ]
+}
+]
