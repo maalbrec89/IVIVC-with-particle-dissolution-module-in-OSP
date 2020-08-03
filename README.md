@@ -96,7 +96,7 @@ The following files are used in this step:
 
 `DissolutionData.xlsx` contains the dissolution data in biorelevant media. In this example, the following hypothetical dissolution data of four different doses (20, 50, 100 and 200 mg) in FaSSIF have been used:
 
-<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
+<img width="768" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
 
 The observed data were loaded in the MoBi<sup>®</sup> file `in vitro dissolution model.mbp3`. 
 
@@ -185,9 +185,9 @@ Note that the PK-Sim<sup>®</sup> directory folder (`C:\Program Files\Open Syste
 
 After executing the commands above, PK-Sim<sup>®</sup> will be started in developed mode which adds some extra features, specifically on context menus (all suffixed with the text `(Developer Only)`), that are mostly used to debug issues or generate template files. It does not change the behavior of the application. The generated output files can now be loaded as building blocks via the context menu as shown below.
 
-<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PKSim-dev_LoadFormulationBB.png" alt="PKSim-dev_LoadFormulationBB" /> 
+<img width="384" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PKSim-dev_LoadFormulationBB.png" alt="PKSim-dev_LoadFormulationBB" /> 
 
-<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PKSim-dev_LoadAdministrationBB.png" alt="PKSim-dev_LoadAdministrationBB" /> 
+<img width="384" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PKSim-dev_LoadAdministrationBB.png" alt="PKSim-dev_LoadAdministrationBB" /> 
 
 Once the building blocks are loaded in PK-Sim<sup>®</sup>, a simulation can be set up to simulate dissolution and absorption in the gastrointestinal tract. Please note that compound-specific parameters relevant for particle dissolution that have been fitted in MoBi<sup>®</sup> (e.g. the `Aqueous diffusion coefficient` or `Solubility at reference pH`) should be the same in the `Compound` building block in PK-Sim<sup>®</sup> and may hence need to be adjusted before setting up a simulation.
 
