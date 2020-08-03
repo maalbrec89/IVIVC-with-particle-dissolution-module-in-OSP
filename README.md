@@ -96,7 +96,7 @@ The following files are used in this step:
 
 `DissolutionData.xlsx` contains the dissolution data in biorelevant media. In this example, the following hypothetical dissolution data of four different doses (20, 50, 100 and 200 mg) in FaSSIF have been used:
 
-<img src="C:\Users\GDUTJ\OneDrive - Bayer\Projects\GitHub\AndreDlm\IVIVE\Conc~Time_all_2.png" alt="Conc~Time_all_2" style="zoom:25%;" />
+<img src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Conc~Time_all_2" style="zoom:25%;" />
 
 The observed data were loaded in the MoBi<sup>®</sup> file `in vitro dissolution model.mbp3`. 
 
