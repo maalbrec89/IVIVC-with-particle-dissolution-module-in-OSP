@@ -96,7 +96,7 @@ The following files are used in this step:
 
 `DissolutionData.xlsx` contains the dissolution data in biorelevant media. In this example, the following hypothetical dissolution data of four different doses (20, 50, 100 and 200 mg) in FaSSIF have been used:
 
-<img width="768" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
+<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
 
 The observed data were loaded in the MoBi<sup>®</sup> file `in vitro dissolution model.mbp3`. 
 
@@ -128,7 +128,7 @@ Furthermore, the following parameters can be changed for more advanced settings 
 
 Additionally, the Excel file containing the particle size radii and their probability generated in step 1 of this workflow (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`) has to be imported in the existing `Paramater Start Values` building block in MoBi<sup>®</sup>. This will overwrite the existing values and the imported values should be displayed at the end of the list:
 
-<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PSV_screenshot.png" alt="Parameter Start Values" />
+<img width="768" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PSV_screenshot.png" alt="Parameter Start Values" />
 
 Of note, if dissolution has been measured under different experimental conditions (e.g. different dose, biorelevant media pH or volume, or particle size distribution), it is recommended to clone an existing `Paramater Start Values` building block and manually adjust the respective parameter values. 
 
@@ -136,7 +136,7 @@ Once all `Paramater Start Values` have been defined, the simulation(s) can be se
 
 <img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/InVitroDisso_FitResult.png" alt="InVitroDisso_FitResult" />
 
-<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/InVitroDisso_FitResult2.png" alt="InVitroDisso_FitResult2" />
+<img width="640" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/InVitroDisso_FitResult2.png" alt="InVitroDisso_FitResult2" />
 
 ### Transfer particle size distribution and particle dissolution parameters to PK-Sim<sup>®</sup>
 
