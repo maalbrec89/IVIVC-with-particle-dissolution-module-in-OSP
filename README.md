@@ -138,7 +138,7 @@ Once all `Paramater Start Values` have been defined, the simulation(s) can be se
 
 <img width="640" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/InVitroDisso_FitResult2.png" alt="InVitroDisso_FitResult2" />
 
-### Transfer particle size distribution and particle dissolution parameters to PK-Sim<sup>®</sup>
+### 3. Transfer particle size distribution and particle dissolution parameters to PK-Sim<sup>®</sup>
 
 In this step, the discretized particle sizes generated in step 1 and the parameters of the particle dissolution function from step 2 will be transferred to PK-Sim<sup>®</sup> for predicting dissolution in the gastrointestinal tract *in vivo*.
 
