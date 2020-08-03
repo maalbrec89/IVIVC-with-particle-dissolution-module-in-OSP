@@ -8,7 +8,7 @@ This repository explains the technical steps for conducting an in vitro-in vivo 
 
 ## Necessary files
 
-To conduct an IVIVE according to the workflow described below, the folder `Files` available in this repository needs to be downloaded. This folder contains the following files which need to be saved in the working directory:
+To conduct an IVIVE according to the workflow described below, the folder `Files` available in this repository needs to be downloaded. This folder contains the following files which should be saved locally in the working directory:
 
 * `particle_distribution_raw_data.csv`
 * `psd calculation.R` 
