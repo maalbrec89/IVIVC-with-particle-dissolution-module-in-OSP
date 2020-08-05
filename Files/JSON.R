@@ -32,8 +32,8 @@ write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), file.path(getwd(),"/BB_Fo
 filename <- "BB_Administration_ParticleDissolution_10Bins_input.json"
 BB <- fromJSON(file.path(getwd(),filename))
 
-Dose <- 100      # Dose in g
-MW <- 450        # Molecular weight in g/mol
+Dose <- 0.1      # Dose in g
+MW <- 200        # Molecular weight in g/mol
 Sum_rel_amountFactor <- sum(PSV[11:20,3])
 amountCorrectionFactorForBin = Dose/MW/Sum_rel_amountFactor
 
