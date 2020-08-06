@@ -24,9 +24,11 @@ To conduct an IVIVE according to the workflow described below, the folder `Files
 
 The workflow for establishing IVIVE with OSP comprises the following three consecutive steps:
 
-1. Fitting a cumulative distribution function to a distribution of measured particle sizes
+1. Fitting a cumulative distribution function to a distribution of measured particle sizes using R
 2. Fitting the particle dissolution function to *in vitro* dissolution profiles measured in biorelevant media using MoBi<sup>®</sup>
 3. Transferring the particle size distribution from step 1 and parameters of the dissolution function from step 2 to PK-Sim<sup>®</sup> for predicting dissolution in the gastrointestinal tract *in vivo*
+
+Step 1 will be exclusively conducted in R; step 2 exclusively in MoBi<sup>®</sup>; and step 3 in R and PK-Sim<sup>®</sup>.
 
 The technical workflow for each of these steps will be explained in detail in the following sections.
 
