@@ -191,7 +191,7 @@ After executing the commands above, PK-Sim<sup>®</sup> will be started in devel
 
 <img width="384" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/PKSim-dev_LoadAdministrationBB.png" alt="PKSim-dev_LoadAdministrationBB" /> 
 
-Once the building blocks are loaded in PK-Sim<sup>®</sup>, a simulation can be set up to simulate dissolution and absorption in the gastrointestinal tract. Please note that compound-specific parameters relevant for particle dissolution that have been fitted in MoBi<sup>®</sup> (e.g. the `Aqueous diffusion coefficient` or `Solubility at reference pH`) should be the same in the `Compound` building block in PK-Sim<sup>®</sup> and may hence need to be adjusted before setting up a simulation.
+Once the building blocks are loaded in PK-Sim<sup>®</sup>, a simulation can be set up to simulate dissolution and absorption in the gastrointestinal tract. Please note that compound-specific parameters relevant for particle dissolution that have been fitted in MoBi<sup>®</sup> (e.g. the `Aqueous diffusion coefficient` or `Solubility at reference pH`) should be the same in the `Compound` building block in PK-Sim<sup>®</sup> and may hence need to be adjusted before running a simulation.
 
 
 
