@@ -1,0 +1,232 @@
+{
+  "Name": "PO_ParticleDissolution_10Bins",
+  "DosingInterval": "Single",
+  "Schemas": [
+    {
+      "Name": "Schema 1",
+      "SchemaItems": [
+        {
+          "Name": "Schema Item 1",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin01",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 39.617,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 3.5,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 2",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin02",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 34.105,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 3",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin03",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 15.394,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 4",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin04",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 6.2179,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 5",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin05",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 2.5772,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 6",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin06",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 1.1254,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 7",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin07",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 0.51862,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 8",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin08",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 0.25117,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 9",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin09",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 0.12716,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        },
+        {
+          "Name": "Schema Item 10",
+          "ApplicationType": "Oral",
+          "FormulationKey": "ParticleDissolution_Bin10",
+          "Parameters": [
+            {
+              "Name": "Start time",
+              "Value": 0,
+              "Unit": "h"
+            },
+            {
+              "Name": "InputDose",
+              "Value": 0.06696,
+              "Unit": "mg"
+            },
+            {
+              "Name": "Volume of water/body weight",
+              "Value": 0,
+              "Unit": "ml/kg"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "TimeUnit": "h"
+}
