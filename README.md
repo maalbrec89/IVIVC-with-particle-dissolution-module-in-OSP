@@ -4,8 +4,6 @@
 
 This repository explains the technical steps for conducting an in vitro-in vivo extrapolation (IVIVE) with the Open Systems Pharmacology (OSP) software suite. Specifically, dissolution kinetics is described by a modified form of the Noyes-Whitney equation [[1](#References)] which accounts for different sizes of spherical particles with a predefined particle size distribution [[2,3](#References)]. In PK-Sim<sup>®</sup>, this dissolution function is readily available in the `Formulation` building block section as `Particle Dissolution` [[4](#References)]. This particle dissolution function has also been implemented in MoBi<sup>®</sup> to model dissolution in biorelevant media *in vitro* and the MoBi<sup>®</sup> file is distributed with this repository.
 
-
-
 ## Necessary files
 
 To conduct an IVIVE according to the workflow described below, the folder `Input_files` available in this repository needs to be downloaded. This folder contains the following files which should be saved locally in the working directory:
@@ -34,7 +32,9 @@ The technical workflow for each of these steps will be explained in detail in th
 
 ### 1. Fitting a cumulative distribution function to measured particle sizes
 
-In this step, different cumulative distribution functions are fitted to measured particle size data using R. The best fitting function (i.e. with the lowest error) is used to discretize the particle sizes in a pre-defined number of bins (per default 10). Finally, the particle radius (i.e. size divided by 2) and the respective density for each radius (termed `rel_amountFactor`) are written in a Excel file which will be imported as `Paramater Start Values` in MoBi<sup>® </sup> in step 2 of this workflow.
+The particle size of a drug substance or product, typically measured by laser diffraction spectroscopy, is an important physical attribute potentially affecting drug product performance. The measured sizes are generally discretized in specific size ranges (or bins). Together with the relative amount of each size bin, they constitute the particle size distribution of a drug substance or product. The relative amount of a particle size bin is quantified in terms of the probability density (also termed q<sub>3</sub> in this context) or the quantile (also termed Q<sub>3</sub> in this context). The particle dissolution model implemented in MoBi<sup>®</sup> and PK-Sim<sup>®</sup> can handle up to 10 different particle size bins. 
+
+In this step, different cumulative distribution functions are fitted to measured particle size data using R. The best fitting function (i.e. with the lowest squared error) is used to discretize the particle sizes in a pre-defined number of bins (per default 10 bins). Finally, the particle radius (i.e. size divided by 2) and the respective density for each radius (termed `rel_amountFactor`) are written in a Excel file which will be imported as `Paramater Start Values` in MoBi<sup>® </sup> in step 2 of this workflow.
 
 The following files are used in this step:
 
@@ -71,7 +71,7 @@ The following files are used in this step:
 
 `psd calculation.R` is an R script used to fit different cumulative distribution functions to the measured particle size data. The script contains the following sections:
 
-* `FUNCTIONS`: defines the distribution functions fitted to the measured particle size data. Currently, these functions comprise the Weibull distribution, lognormal distribution, normal distribution and gamma distribution function, but additional functions can also be added.
+* `FUNCTIONS`: defines the distribution functions fitted to the measured particle size data. Currently, these functions comprise the Weibull distribution, lognormal distribution, normal distribution and gamma distribution function. Additional functions can also be added; in this case the R script (especially the wrapper functions) needs to be adjusted.
 * `MEASURED PARTICLE SIZE DATA`: defines the following items:
   * compound name, batch name and unit of the particle size (which are all used later during plotting)
   * file name containing the measured particle size data (given in `particle_distribution_raw_data.csv`)
