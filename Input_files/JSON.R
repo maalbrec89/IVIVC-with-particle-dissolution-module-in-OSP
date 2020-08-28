@@ -3,9 +3,17 @@ rm(list = setdiff(ls(), lsf.str()))
 require(jsonlite)
 require(xlsx)
 
+# set working directory to "<your local path>/IVIVE-with-particle-dissolution-module-in-OSP"
+workingDir <- file.path("C:/OSP","IVIVE-with-particle-dissolution-module-in-OSP") 
+setwd(workingDir)
+
+# Define dose and molecular weight
+Dose <- 50       # Dose in mg
+MW <- 200        # Molecular weight in g/mol
+
 # load PSV file with particle radius and rel_amount:
 PSVfilename <- "PSV_CompoundA_BatchX_lognormal.xlsx"
-PSV <- read.xlsx(paste0(file.path(getwd(),PSVfilename)),1)
+PSV <- read.xlsx(paste0(file.path("Output_files",PSVfilename)),1)
 
 ##################################################
 ########## PARSE FORMULATION BB ##################
@@ -13,16 +21,16 @@ PSV <- read.xlsx(paste0(file.path(getwd(),PSVfilename)),1)
 
 # load json formulation file:
 filename <- "BB_Formulation_ParticleDissolution_10Bins_input.json"
-BB <- fromJSON(file.path(getwd(),filename))
+BB <- fromJSON(file.path("Input_files/",filename))
+nBin <- length(unique(PSV$Container.Path))
 
-PSV[,3] <- PSV[,3]/1000   # convert from µm to mm
-
-for(i in 1:10){
-  radius_i <- PSV[i,3]
-  BB$Parameters[[i]]$Value[3] <- radius_i
+PSV[PSV$Parameter.Name=="radius (at t=0)","Value"] <- PSV[PSV$Parameter.Name=="radius (at t=0)","Value"]/1000   # convert radii from µm to mm
+for(i in 1:nBin){
+  radius_i <- PSV[PSV$Parameter.Name=="radius (at t=0)",3][i]
+  BB$Parameters[[i]]$Value[which(BB$Parameters[[i]]$Name=="Particle radius (mean)")] <- radius_i
 }
 
-write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), file.path(getwd(),"/BB_Formulation_ParticleDissolution_10Bins_output.json"))
+write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), file.path("Output_files","BB_Formulation_ParticleDissolution_10Bins_output.json"))
 
 ##################################################
 ########## PARSE ADMINISTRATION BB ###############
@@ -30,20 +38,18 @@ write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), file.path(getwd(),"/BB_Fo
 
 # load json administration file:
 filename <- "BB_Administration_ParticleDissolution_10Bins_input.json"
-BB <- fromJSON(file.path(getwd(),filename))
+BB <- fromJSON(file.path("Input_files",filename))
 
-Dose <- 50       # Dose in mg
-MW <- 200        # Molecular weight in g/mol
-Sum_rel_amountFactor <- sum(PSV[11:20,3])
+Sum_rel_amountFactor <- sum(PSV[PSV$Parameter.Name=="rel_amountFactor","Value"])
 amountCorrectionFactorForBin = Dose/MW/Sum_rel_amountFactor
 
-for(i in 1:10){
-  rel_amountFactor_i <- PSV[10+i,3]
+for(i in 1:nBin){
+  rel_amountFactor_i <- PSV[PSV$Parameter.Name=="rel_amountFactor","Value"][i]
   
   startAmount_i <- rel_amountFactor_i*amountCorrectionFactorForBin
   startMass_i <- startAmount_i*MW
   
-  BB$Schemas$SchemaItems[[1]]$Parameters[[i]][2,2] <- startMass_i
+  BB$Schemas$SchemaItems[[1]]$Parameters[[i]][BB$Schemas$SchemaItems[[1]]$Parameters[[i]]$Name=="InputDose","Value"] <- startMass_i
 }
 
-write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), paste0(getwd(),"/BB_Administration_ParticleDissolution_10Bins_output.json"))
+write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), paste0("Output_files","BB_Administration_ParticleDissolution_10Bins_output.json"))
