@@ -103,7 +103,7 @@ The following files are used in this step:
 
 `DissolutionData.xlsx` contains the dissolution data in biorelevant media. In this example, the following hypothetical dissolution data of four different doses (20, 50, 100 and 200 mg) in FaSSIF have been used:
 
-<img width="512" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
+<img width="640" src="https://github.com/AndreDlm/IVIVE/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
 
 The observed data were loaded in the MoBi<sup>®</sup> file `in vitro dissolution model.mbp3`. 
 
@@ -125,14 +125,26 @@ The following parameter start values need to be manually adjusted:
 
 Furthermore, the following parameters can be changed for more advanced settings (although it is recommended to keep them set to the default values):
 
-- `Thickness (unstirred water layer)`
-- `NBins`
-- `Solubility gain per charge`
-- `SDS Dose`
-- `SDS dependent Solubility`
-- `SDS-mediated increase in solubility factor`
+- `Thickness (unstirred water layer)`: unstirred water layers thickness
+- `NBins`: number of particle size bins (note that if the number of bins is increased beyond 10, the model structure has to be adjusted)
+- `Solubility gain per charge`: factor by which the solubility increases with each ionization step
+
+Finally, the following parameters are model extensions and it is generally recommended to keep the default values unchanged:
+
+- `SDS Dose`: Mass of an excipient in the tablet (e.g. sodium dodecyl sulfate) that may enhance the solubility of the drug according to a log-linear relationship; for the sake of simplicity, this excipient is assumed to be instantaneously dissolved in the model 
+
+- `SDS dependent Solubility`: Boolean function switching the log-linear relationship between dissolved excipient concentration and drug solubility on (set value to `1`) or off (set value to `0`) 
+
+- `SDS-mediated increase in solubility factor`: slope factor of the log-linear relationship between dissolved excipient concentration and drug solubility. If `SDS dependent Solubility` is set to `1`, this relationship is modelled as follows: 
+
+  DrugSolubility =  `SDS-mediated increase in solubility factor`* (SDS_Concentration > 0 ? LOG(SDS_Concentration*1E6+1)*1E-6 : 0) + Solubility * Solubility_pKa_REFpH_Factor / Solubility_pKa_pH_Factor
+
+  [http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin(mc^2)&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+
 - `Disintegration Lambda`
+
 - `enableTabletDisintegration`
+
 - `Disintegration Alpha`
 
 Additionally, the Excel file containing the particle size radii and their probability generated in step 1 of this workflow (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`) has to be imported in the existing `Paramater Start Values` building block in MoBi<sup>®</sup>. This will overwrite the existing values and the imported values should be displayed at the end of the list:
