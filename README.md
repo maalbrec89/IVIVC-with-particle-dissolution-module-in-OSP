@@ -139,7 +139,7 @@ Finally, the following parameters are model extensions and it is generally recom
 
   DrugSolubility =  `SDS-mediated increase in solubility factor`* (SDS_Concentration > 0 ? LOG(SDS_Concentration*1E6+1)*1E-6 : 0) + Solubility * Solubility_pKa_REFpH_Factor / Solubility_pKa_pH_Factor
 
-  [http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin(mc^2)&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+  \mathcal{W}(A,f) = (T,\bar{f})
 
 - `Disintegration Lambda`
 
