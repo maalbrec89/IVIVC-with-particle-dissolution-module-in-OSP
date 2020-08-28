@@ -61,11 +61,15 @@ qwrapper <- function(p,par,distr){
 ##### MEASURED PARTICLE SIZE DATA ###########
 #############################################
 
+# set working directory to "<your local path>/IVIVE-with-particle-dissolution-module-in-OSP"
+workingDir <- file.path("C:/OSP","IVIVE-with-particle-dissolution-module-in-OSP")
+setwd(workingDir)
+
 compound <- "CompoundA"    # compound name
 batch <- "BatchX"          # batch name
 size_unit <- "µm"          # unit of the particle size
 obsDataFile <- "particle_distribution_raw_data.csv"     # file name
-obsData <- read.table(obsDataFile,sep=",",header = TRUE, as.is = TRUE)
+obsData <- read.table(file.path("Input_files",obsDataFile),sep=",",header = TRUE, as.is = TRUE)
 names(obsData)
 
 obsData$q_obs <- obsData$q_obs/100   # convert percentage to fraction
@@ -83,6 +87,7 @@ color <- brewer.pal(9, "Set1")
 colorRaw <- brewer.pal(11, "Set3")
 colorBg <- rgb(t(col2rgb(colorRaw)),alpha = 50, maxColorValue = 255)
 colorLi <- rgb(t(col2rgb(colorRaw)),alpha = 255, maxColorValue = 255)
+
 
 #############################################
 ##### FITTING ###############################
@@ -103,8 +108,8 @@ cat(as.character(res$name[which.min(res$error)]))
 finalModel <- models[[which.min(res$error)]]
 finalDistr <- distributions[which.min(res$error)]
 
-png(filename = file.path(getwd(),paste0(paste("FitComp",compound,batch,sep="_"),".png")), width = 12, height = 12, pointsize = 8 ,res = 300, units = "cm")
-plot(NA,xlim = c(min(t),max(t)),ylim = c(0,100),las=1,ylab="Cumulative distribution Q3 [%]",xlab=paste0("Particle size [",size_unit,"]"), paste(compound,batch,sep = " / "))
+png(filename = file.path("Output_files",paste0(paste("FitComp",compound,batch,sep="_"),".png")), width = 12, height = 12, pointsize = 8 ,res = 300, units = "cm")
+plot(NA,xlim = c(min(t),max(t)),ylim = c(0,100),las=1,ylab="Cumulative probability [%]",xlab=paste0("Particle size [",size_unit,"]"), paste(compound,batch,sep = " / "))
 for(ii in seq_along(distributions)){
   lines(t,100*pwrapper(t,models[[ii]]$par,distr = distributions[ii]),col=color[ii],lwd=2)
 }
@@ -133,7 +138,7 @@ trapz(r_bin_means,rel_amountFactor)
 dat <- data.frame(bin=seq(1,NBins,1),r_bin_means=r_bin_means,q_bin_means=q_bin_means,rel_amountFactor=rel_amountFactor,
            r_bin_border_low=r_bin_borders[1:(length(r_bin_borders)-1)],r_bin_border_up=r_bin_borders[2:(length(r_bin_borders))],
            distribution=c(finalDistr,rep("",NBins-1)),par1=c(finalModel$par[1],rep("",NBins-1)),par2=c(finalModel$par[2],rep("",NBins-1)))
-write.table(x = dat,file = file.path(getwd(),paste0(paste("ParticleDistr",compound,batch,finalDistr,sep="_"),".csv")),
+write.table(x = dat,file = file.path("Output_files",paste0(paste("ParticleDistr",compound,batch,finalDistr,sep="_"),".csv")),
             quote = FALSE,sep = ";",row.names = FALSE,col.names = TRUE)
 
 #############################################
@@ -143,10 +148,10 @@ write.table(x = dat,file = file.path(getwd(),paste0(paste("ParticleDistr",compou
 t <- seq(0,r_bin_borders[length(r_bin_borders)],by=0.01) # for plotting
 
 # density:
-png(filename = file.path(getwd(),paste0(paste("ProbDensBinned",compound,batch,sep="_"),".png")),
+png(filename = file.path("Output_files",paste0(paste("ProbDensBinned",compound,batch,sep="_"),".png")),
                          width = 12, height = 12, pointsize = 8 ,res = 300, units = "cm")
 plot(t,dwrapper(t,finalModel$par,distr = finalDistr),type="l",las=1,
-     xlab=paste0("Particle size [",size_unit,"]"),ylab="Density q3",main=paste(compound,batch,sep = " / "))
+     xlab=paste0("Particle size [",size_unit,"]"),ylab="Density",main=paste(compound,batch,sep = " / "))
 #points(r_bin_means,rel_amountFactor)
 for(ii in 1:(NBins)){
   tBin <- t[t >= r_bin_borders[ii] & t < r_bin_borders[ii+1]]
@@ -159,10 +164,10 @@ for(ii in 1:(NBins)){
 dev.off()
 
 # cumulative density:
-png(filename = file.path(getwd(),paste0(paste("CumDistrBinned",compound,batch,sep="_"),".png")),
+png(filename = file.path("Output_files",paste0(paste("CumDistrBinned",compound,batch,sep="_"),".png")),
                          width = 12, height = 12, pointsize = 8 ,res = 300, units = "cm")
 plot(t,100*pwrapper(t,finalModel$par,distr = finalDistr),type="l",lwd=2,las=1,
-     xlab=paste0("Particle size [",size_unit,"]"),ylab="Cumulative distribution Q3 [%]",col="black",main=paste(compound,batch,sep = " / "))
+     xlab=paste0("Particle size [",size_unit,"]"),ylab="Cumulative probability [%]",col="black",main=paste(compound,batch,sep = " / "))
 #points(r_bin_means,rel_amountFactor)
 for(ii in 1:(NBins)){
   tBin <- t[t >= r_bin_borders[ii] & t < r_bin_borders[ii+1]]
@@ -189,4 +194,4 @@ radius_bin_means <- r_bin_means/2   # particle size divided by 2 to obtain parti
 
 PSV <- data.frame("Container Path"=rep(ContainerPath,2), "Parameter Name"=c(rep("radius (at t=0)",NBins),rep("rel_amountFactor",NBins)),
                   Value=c(radius_bin_means,rel_amountFactor), Unit=c(rep("µm",NBins),rep("",NBins)))
-write.xlsx(x = PSV,file = file.path(getwd(),paste0(paste("PSV",compound,batch,finalDistr,sep="_"),".xlsx")),sheetName="Sheet1",row.names=F,col.names=T)
+write.xlsx(x = PSV,file = file.path("Output_files",paste0(paste("PSV",compound,batch,finalDistr,sep="_"),".xlsx")),sheetName="Sheet1",row.names=F,col.names=T)
