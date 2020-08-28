@@ -73,21 +73,22 @@ The following files are used in this step:
 
 * `FUNCTIONS`: defines the distribution functions fitted to the measured particle size data. Currently, these functions comprise the Weibull distribution, lognormal distribution, normal distribution and gamma distribution function. Additional functions can also be added; in this case the R script (especially the wrapper functions) needs to be adjusted.
 * `MEASURED PARTICLE SIZE DATA`: defines the following items:
+  * `workingDir` defines the working directory 
   * compound name, batch name and unit of the particle size (which are all used later during plotting)
   * file name containing the measured particle size data (given in `particle_distribution_raw_data.csv`)
   * number of bins (per default, the particle sizes are discretized in 10 bins)
   * the cumulative distribution functions that are being fitted to the measured data (per default, all functions listed above are used)
   * additional configuration settings used for plotting (per default, these settings are kept unchanged)
 * `FITTING`: fits the cumulative distribution functions to the measured data, prints the results in the console and saves a figure of the measured data together with all fitted functions in the working folder (in this example: `FitComp_CompoundA_BatchX.png`).
-* `DISCRETIZATION`: Using the cumulative distribution function with the best fit (i.e. lowest error), the particle sizes are discretized in bins. The number of bins is defined above. The fit results (name of best fitting function and fitted parameter values) and the discretized particle sizes are written in a csv file and saved in the working folder (in this example: `ParticleDistr_CompoundA_BatchX_lognormal.csv`).
+* `DISCRETIZATION`: Using the cumulative distribution function with the best fit (i.e. lowest squared error), the particle sizes are discretized in bins. The number of bins is defined above. Bin borders are defined by equidistant binning between the minimum and maximum radius. Minimum and maximum radius are defined as the 0.001 and 0.999 quantile of the best fit distribution. The representative radius of each bin is the respective quantile of the mean of each bin's probability range. The fit results (name of best fitting function and fitted parameter values) and the discretized particle sizes are written in a csv file and saved in the working folder (in this example: `ParticleDistr_CompoundA_BatchX_lognormal.csv`).
 * `PLOT BINS`: saves a figure showing the fitted density function together with the equidistant bin mean sizes and another figure showing the fitted cumulative density function together with the equidistant bin mean sizes and observed data in the working folder (in this example: `ProbDensBinned_CompoundA_BatchX.png` and `CumDistrBinned_CompoundA_BatchX.png`).
-* `EXPORT RESULTS FOR MOBI`: saves the particle radius (= particle size/2) and rel amount factor (i.e. density) as Excel file that can be imported as as parameter start values into MoBi<sup>®</sup> in the working folder (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`).
+* `EXPORT RESULTS FOR MOBI`: saves the particle radius (= particle size/2) and relative amount factor (`rel_amountFactor`, i.e. the probability density normalized to sum up to 1.0) as Excel file that can be imported as as parameter start values into MoBi<sup>®</sup> in the working folder (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`).
 
 To conduct the fitting, open the R-file and adjust relevant code in the section `MEASURED PARTICLE SIZE DATA` (see details above) and, if needed, define further distribution functions in the section `FUNCTIONS` (this is not a prerequisite). Execute the code. 
 
 ### 2. Fitting the dissolution function to measured dissolution profiles in biorelevant media *in vitro*
 
-In this step, the particle dissolution model describing *in vitro* dissolution profiles measured in biorelevant media (e.g. FaSSGF, FaSSIF, FeSSIF) is established in MoBi<sup>®</sup>. The particle dissolution model implemented in the MoBi<sup>®</sup> file distributed with this repository corresponds structurally to the particle dissolution model implemented in PK-Sim<sup>®</sup> [[4](#References)], but the parametrization is different as it accounts for the experimental conditions *in vitro*. The particle size radii from the previous step (and their probability) are incorporated in the dissolution model via import as `Paramater Start Values`. Unknown parameters of the model (typically, the aqueous diffusion coefficient and the thermodynamic solubility of the drug) are identified through the `Parameter Identification` module in MoBi<sup>®</sup>. Once a particle dissolution model has been successfully established, the parameter values of the dissolution model will be transferred to PK-Sim<sup>®</sup> in step 3 of this workflow.
+In this step, the particle dissolution model describing *in vitro* dissolution profiles measured in biorelevant media (e.g. FaSSGF, FaSSIF, FeSSIF) is established in MoBi<sup>®</sup>. The particle dissolution model implemented in the MoBi<sup>®</sup> file distributed with this repository corresponds structurally to the particle dissolution model implemented in PK-Sim<sup>®</sup> [[4](#References)], but the parametrization is different as it accounts for the experimental conditions *in vitro*. The particle size radii from the previous step (and their density) are incorporated in the dissolution model via import as `Paramater Start Values`. Unknown parameters of the model (typically, the aqueous diffusion coefficient and the thermodynamic solubility of the drug) are identified through the `Parameter Identification` module in MoBi<sup>®</sup>. Once a particle dissolution model has been successfully established, the parameter values of the dissolution model will be transferred to PK-Sim<sup>®</sup> in step 3 of this workflow.
 
 The following files are used in this step:
 
@@ -102,12 +103,14 @@ The following files are used in this step:
 
 The observed data were loaded in the MoBi<sup>®</sup> file `in vitro dissolution model.mbp3`. 
 
-This MoBi<sup>®</sup> file has the particle dissolution model implemented in the `Passive Transports` building block. Experimental conditions and physicochemical properties of the drug are defined in the `Paramater Start Values` building block, where the following values should be manually adjusted to reflect the current experiment at hand:
+This MoBi<sup>®</sup> file has the particle dissolution model implemented in the `Passive Transports` building block. Experimental conditions and physicochemical properties of the drug are defined in the `Paramater Start Values` building blocks for each of the experiments to be simulated. Each `Paramater Start Values` building block contains information on the drug dose, particle size distribution of the drug batch, volume and pH of the biorelevant medium and the drug's thermodynamic solubility in the medium. Consequently, each simulation in MoBi<sup>®</sup> generally requires its own `Paramater Start Values` building block. Additional `Paramater Start Values` building blocks can created be cloning an existing building block and modifying all relevant parameter start values manually (or via the import function in the context menu). 
+
+The following parameter start values need to be manually adjusted:
 
 - `Volume`: volume of the biorelevant medium
-- `Density (drug)`: density of the drug dissolved in the experiment
-- `Dose`: mass of the drug dissolved in the experiment
-- `Molecular weight`: molar mass of the drug dissolved in the experiment
+- `Density (drug)`: density of the drug used in the dissolution experiment
+- `Dose`: mass of the drug used in the dissolution experiment
+- `Molecular weight`: molar mass of the drug used in the dissolution experiment
 - `PrecipitatedDrugSoluble`: Boolean function controlling whether the precipitated drug can (re-)dissolve (set value to `1`) or not (set value to `0`)
 - `precipitationrate`: precipitation rate of the drug (only used if `PrecipitatedDrugSoluble` is set to `0`)
 - `pH`: pH of the of biorelevant medium
@@ -168,7 +171,7 @@ The following files are used in this step:
   * `InputDose`: drug mass present in each particle size bin
   * `Volume of water/body weight`: volume of water per kg body weight that is administered with the drug mass.
 
-  For each particle size bin, the value of `InputDose` is calculated according to the probability of each particle size radius (`rel_amountFactor_i`) generated in step 1 of this workflow that is stored in the respective Excel file (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`). For this calculation, the (total) dose and molecular weight of the drug need to be defined manually in the script (line 35, 36). 
+  For each particle size bin, the value of `InputDose` is calculated according to the probability density of each particle size radius (`rel_amountFactor_i`) generated in step 1 of this workflow that is stored in the respective Excel file (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`). For this calculation, the (total) dose and molecular weight of the drug need to be defined manually in the script (line 35, 36). 
 
 Note that these dummy files contain 10 particle size bins and need to be adjusted, if the number of bins is different.
 
