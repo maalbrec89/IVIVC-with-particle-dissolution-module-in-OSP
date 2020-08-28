@@ -137,14 +137,10 @@ Finally, the following parameters are model extensions and it is generally recom
 
 - `SDS-mediated increase in solubility factor`: slope factor of the log-linear relationship between dissolved excipient concentration and drug solubility. If `SDS dependent Solubility` is set to `1`, this relationship is modelled as follows: 
 
-  DrugSolubility =  `SDS-mediated increase in solubility factor`* (SDS_Concentration > 0 ? LOG(SDS_Concentration*1E6+1)*1E-6 : 0) + Solubility * Solubility_pKa_REFpH_Factor / Solubility_pKa_pH_Factor
-
-  \mathcal{W}(A,f) = (T,\bar{f})
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\texttt{DrugSolubility&space;}&space;=&space;\texttt{&space;SDS&space;mediated&space;increase&space;in&space;solubility&space;factor&space;}\cdot\texttt{&space;}\log\left({\texttt{SDS&space;concentration}}\right)\texttt{&space;}&plus;\texttt{&space;Solubility&space;at&space;reference&space;pH&space;}\cdot\texttt{&space;}&space;\frac{\texttt{Solubility&space;pKa&space;reference&space;pH&space;factor}}{\texttt{Solubility&space;pKa&space;pH&space;factor}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\texttt{DrugSolubility&space;}&space;=&space;\texttt{&space;SDS&space;mediated&space;increase&space;in&space;solubility&space;factor&space;}\cdot\texttt{&space;}\log\left({\texttt{SDS&space;concentration}}\right)\texttt{&space;}&plus;\texttt{&space;Solubility&space;at&space;reference&space;pH&space;}\cdot\texttt{&space;}&space;\frac{\texttt{Solubility&space;pKa&space;reference&space;pH&space;factor}}{\texttt{Solubility&space;pKa&space;pH&space;factor}}" title="\texttt{DrugSolubility } = \texttt{ SDS mediated increase in solubility factor }\cdot\texttt{ }\log\left({\texttt{SDS concentration}}\right)\texttt{ }+\texttt{ Solubility at reference pH }\cdot\texttt{ } \frac{\texttt{Solubility pKa reference pH factor}}{\texttt{Solubility pKa pH factor}}" /></a>
 
 - `Disintegration Lambda`
-
 - `enableTabletDisintegration`
-
 - `Disintegration Alpha`
 
 Additionally, the Excel file containing the particle size radii and their probability generated in step 1 of this workflow (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`) has to be imported in the existing `Paramater Start Values` building block in MoBi<sup>®</sup>. This will overwrite the existing values and the imported values should be displayed at the end of the list:
