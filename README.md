@@ -167,7 +167,7 @@ The following files are used in this step:
 
 * `JSON.R`
 * `BB_Administration_ParticleDissolution_10Bins_input.json`
-* `BB_Formulation_ParticleDissolution_10Bins_input` 
+* `BB_Formulation_ParticleDissolution_10Bins_input.json` 
 
 #### Detailed descriptions and instructions:
 
