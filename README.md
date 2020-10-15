@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository explains the technical steps for conducting an in vitro-in vivo extrapolation (IVIVE) with the Open Systems Pharmacology (OSP) software suite. Specifically, dissolution kinetics is described by a modified form of the Noyes-Whitney equation [[1](#References)] which accounts for different sizes of spherical particles with a predefined particle size distribution [[2,3](#References)]. In PK-Sim<sup>®</sup>, this dissolution function is readily available in the `Formulation` building block section as `Particle Dissolution` [[4](#References)]. This particle dissolution function has also been implemented in MoBi<sup>®</sup> to model dissolution in biorelevant media *in vitro* and the MoBi<sup>®</sup> file is distributed with this repository.
+This repository explains the technical steps for conducting an in vitro-in vivo extrapolation (IVIVE) for oral drug formulations with the Open Systems Pharmacology (OSP) software suite. Specifically, dissolution kinetics is described by a modified form of the Noyes-Whitney equation [[1](#References)] which accounts for different sizes of spherical particles with a predefined particle size distribution [[2,3](#References)]. In PK-Sim<sup>®</sup>, this dissolution function is readily available in the `Formulation` building block section as `Particle Dissolution` [[4](#References)]. This particle dissolution function has also been implemented in MoBi<sup>®</sup> to model dissolution in biorelevant media *in vitro* and the MoBi<sup>®</sup> file is distributed with this repository.
 
 ## Necessary files
 
@@ -84,7 +84,7 @@ The following files are used in this step:
 * `PLOT BINS`: saves a figure showing the fitted density function together with the equidistant bin mean sizes and another figure showing the fitted cumulative density function together with the equidistant bin mean sizes and observed data in the working folder (in this example: `ProbDensBinned_CompoundA_BatchX.png` and `CumDistrBinned_CompoundA_BatchX.png`).
 * `EXPORT RESULTS FOR MOBI`: saves the particle radius (= particle size/2) and relative amount factor (`rel_amountFactor`, i.e. the probability density normalized to sum up to 1.0) as Excel file that can be imported as as parameter start values into MoBi<sup>®</sup> in the working folder (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`).
 
-To conduct the fitting, open the R-file and adjust relevant code in the section `MEASURED PARTICLE SIZE DATA` (see details above) and, if needed, define further distribution functions in the section `FUNCTIONS` (this is not a prerequisite). Execute the code. 
+To conduct the fitting, open the R-file and adjust relevant code in the section `MEASURED PARTICLE SIZE DATA` (see details above) and, if needed, define further distribution functions in the section `FUNCTIONS` (this is not a prerequisite). Execute the R script. 
 
 ### 2. Fitting the dissolution function to measured dissolution profiles in biorelevant media *in vitro*
 
