@@ -103,7 +103,7 @@ The following files are used in this step:
 
 `DissolutionData.xlsx` contains the dissolution data in biorelevant media. In this example, the following hypothetical dissolution data of four different doses (20, 50, 100 and 200 mg) in FaSSIF have been used:
 
-<img width="640" src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
+<img width="640" src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/Conc~Time_all_2.png" alt="Concentrations versus Time" />
 
 The observed data were loaded in the MoBi<sup>®</sup> file `in vitro dissolution model.mbp3`. 
 
@@ -149,15 +149,15 @@ Finally, the following parameters are model extensions and it is generally recom
 
 Additionally, the Excel file containing the particle size radii and their probability generated in step 1 of this workflow (in this example: `PSV_CompoundA_BatchX_lognormal.xlsx`) has to be imported in the existing `Paramater Start Values` building block in MoBi<sup>®</sup>. This will import the values for the initial radii of the bins and the relative amount of the bins and overwrite existing values. The imported values should be displayed at the end of the list:
 
-<img width="768" src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/PSV_screenshot.png" alt="Parameter Start Values" />
+<img width="768" src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/PSV_screenshot.png" alt="Parameter Start Values" />
 
 Of note, if dissolution has been measured under different experimental conditions (e.g. different dose, biorelevant media pH or volume, or particle size distribution), it is recommended to clone an existing `Paramater Start Values` building block and manually adjust the respective parameter values. 
 
 Once all `Paramater Start Values` have been defined, the simulation(s) can be set up and unknown parameter(s) can be fitted via the `Parameter Identification` module. In this example, the `Aqueous diffusion coefficient` and `Solubility at reference pH` have been optimized with the following results:
 
-<img width="512" src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/InVitroDisso_FitResult.png" alt="InVitroDisso_FitResult" />
+<img width="512" src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/InVitroDisso_FitResult.png" alt="InVitroDisso_FitResult" />
 
-<img width="640" src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/InVitroDisso_FitResult2.png" alt="InVitroDisso_FitResult2" />
+<img width="640" src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/InVitroDisso_FitResult2.png" alt="InVitroDisso_FitResult2" />
 
 ### 3. Transfer particle size distribution and particle dissolution parameters to PK-Sim<sup>®</sup>
 
@@ -206,9 +206,9 @@ Note that the PK-Sim<sup>®</sup> directory folder (`C:\Program Files\Open Syste
 
 After executing the commands above, PK-Sim<sup>®</sup> will be started in developed mode which adds some extra features, specifically on context menus (all suffixed with the text `(Developer Only)`), that are mostly used to debug issues or generate template files. It does not change the behavior of the application. The generated output files can now be loaded as building blocks via the context menu as shown below.
 
-<img width="384" src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/PKSim-dev_LoadFormulationBB.png" alt="PKSim-dev_LoadFormulationBB" /> 
+<img width="384" src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/PKSim-dev_LoadFormulationBB.png" alt="PKSim-dev_LoadFormulationBB" /> 
 
-<img width="384" src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/PKSim-dev_LoadAdministrationBB.png" alt="PKSim-dev_LoadAdministrationBB" /> 
+<img width="384" src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/PKSim-dev_LoadAdministrationBB.png" alt="PKSim-dev_LoadAdministrationBB" /> 
 
 Once the building blocks are loaded in PK-Sim<sup>®</sup>, a simulation can be set up to simulate dissolution and absorption in the gastrointestinal tract. Please note that compound-specific parameters relevant for particle dissolution that have been fitted in MoBi<sup>®</sup> (e.g. the `Aqueous diffusion coefficient` or `Solubility at reference pH`) should be the same in the `Compound` building block in PK-Sim<sup>®</sup> and may hence need to be adjusted before running a simulation.
 
