@@ -90,7 +90,7 @@ To conduct the fitting, open the R-file and adjust relevant code in the section 
 
 In this step, the particle dissolution model describing *in vitro* dissolution profiles measured in biorelevant media (e.g. FaSSGF, FaSSIF, FeSSIF) is established in MoBi<sup>®</sup>. The structure of the particle dissolution model implemented in the MoBi<sup>®</sup> file distributed with this repository is schematically shown in the figure below.
 
-<img width=512 src="https://github.com/AndreDlm/IVIVC/blob/master/Figures/MoBi_DissolutionModelStructure.png" alt="Dissolution Model Structure MoBi" />
+<img width=512 src="https://github.com/AndreDlm/IVIVC-with-particle-dissolution-module-in-OSP/blob/master/Figures/MoBi_DissolutionModelStructure.png" alt="Dissolution Model Structure MoBi" />
 
 This dissolution model corresponds structurally to the particle dissolution model implemented in PK-Sim<sup>®</sup> [[4](#References)], but the parametrization is different as it accounts for the conditions of the *in vitro* dissolution experiment (e.g. volume and pH of the solvent). The particle size radii from the previous step (and their probability density) are incorporated in the dissolution model via import as `Paramater Start Values`. Unknown parameters of the model (typically, the aqueous diffusion coefficient and the thermodynamic solubility of the drug) are identified through the `Parameter Identification` module in MoBi<sup>®</sup>. Once a particle dissolution model has been successfully established, the parameter values of the dissolution model will be transferred to PK-Sim<sup>®</sup> in step 3 of this workflow.
 
