@@ -24,7 +24,7 @@ filename <- "BB_Formulation_ParticleDissolution_10Bins_input.json"
 BB <- fromJSON(file.path("Input_files/",filename))
 nBin <- length(unique(PSV$Container.Path))
 
-PSV[PSV$Parameter.Name=="radius (at t=0)","Value"] <- PSV[PSV$Parameter.Name=="radius (at t=0)","Value"]/1000   # convert radii from µm to mm
+PSV[PSV$Parameter.Name=="radius (at t=0)","Value"] <- PSV[PSV$Parameter.Name=="radius (at t=0)","Value"]/1000   # convert radii from Âµm to mm
 for(i in 1:nBin){
   radius_i <- PSV[PSV$Parameter.Name=="radius (at t=0)",3][i]
   BB$Parameters[[i]]$Value[which(BB$Parameters[[i]]$Name=="Particle radius (mean)")] <- radius_i
@@ -52,4 +52,4 @@ for(i in 1:nBin){
   BB$Schemas$SchemaItems[[1]]$Parameters[[i]][BB$Schemas$SchemaItems[[1]]$Parameters[[i]]$Name=="InputDose","Value"] <- startMass_i
 }
 
-write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), paste0("Output_files","BB_Administration_ParticleDissolution_10Bins_output.json"))
+write(toJSON(BB, digits=I(5), pretty=T, auto_unbox=T), file.path("Output_files","BB_Administration_ParticleDissolution_10Bins_output.json"))
